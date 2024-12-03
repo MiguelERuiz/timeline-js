@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.vis-item.red {
+  color: #2c2d34;
+  background-color: #e94822;
+  border-color: #f2910a;
+}
+
+.vis-item.yellow {
+  color: #393e46;
+  background-color: #929aab;
+  border-color: #393e46;
+}
