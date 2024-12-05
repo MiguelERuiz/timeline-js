@@ -56,6 +56,7 @@ const TimelineComponent = () => {
         start: event.start_date,
         end: event.end_date,
         group: event.category_id,
+        title: `Fecha: ${event.start_date}`,
         className: eventColor(event.category_id)
       }));
     }
