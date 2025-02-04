@@ -92,15 +92,21 @@ const TimelineComponent = () => {
   }, [events, filteredEvents]);
 
   // Handle category selection
-  const handleCategoryChange = (categoryId) => {
+  const handleCategoryChange = async (categoryId) => {
     setSelectedCategory(categoryId);
-
-    if (categoryId === null) {
-      setFilteredEvents(events); // Show all events if no category is selected
-    } else {
-      setFilteredEvents(events.filter(event => toString(event.category_id) === categoryId));
+    var events;
+    try {
+      if(categoryId) {
+        events = await EventService.getFilteredEvents(categoryId);
+      } else {
+        events = await EventService.getEvents();
+      }
+      setEvents(events);
+      setFilteredEvents(events); // Initially, display all events
+      timelineInstanceRef.current.setItems(events);
+    } catch (error) {
+      console.error("Error loading events:", error);
     }
-    // TODO: redraw timeline with filtered events
   };
 
   return (
