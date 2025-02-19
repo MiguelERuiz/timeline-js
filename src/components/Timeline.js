@@ -65,6 +65,7 @@ const TimelineComponent = () => {
       const timelineItems = visEvents(events);
 
       const options = {
+        min: new Date('1993-12-1'),
         width: "100%",
         height: "400px",
         stack: true,
